@@ -1,0 +1,133 @@
+/* Grid Container Properties */
+.grid-container {
+  display: grid;
+  /* Basic Grid Structure */
+  grid-template-columns: repeat(3, 1fr);      /* Equal width columns */
+  grid-template-rows: auto;                   /* Auto-sized rows */
+  grid-template-areas: "header header header" /* Named grid areas */
+                      "main main sidebar"
+                      "footer footer footer";
+  
+  /* Grid Gaps */
+  gap: 20px;                                 /* Gap between grid items */
+  row-gap: 10px;                             /* Gap between rows */
+  column-gap: 15px;                          /* Gap between columns */
+  
+  /* Grid Alignment */
+  justify-content: center;                    /* Horizontal alignment */
+  align-content: center;                      /* Vertical alignment */
+  place-content: center center;               /* Shorthand for justify-content & align-content */
+  
+  /* Grid Auto Flow */
+  grid-auto-flow: row;                        /* Direction for auto-placed items */
+  grid-auto-rows: minmax(100px, auto);        /* Size of auto-generated rows */
+  grid-auto-columns: minmax(100px, auto);     /* Size of auto-generated columns */
+}
+
+/* Grid Item Properties */
+.grid-item {
+  /* Grid Placement */
+  grid-column: 1 / 3;                         /* Column start / end */
+  grid-row: 1 / 3;                           /* Row start / end */
+  grid-area: header;                         /* Named grid area */
+  
+  /* Item Alignment */
+  justify-self: center;                      /* Horizontal self-alignment */
+  align-self: center;                        /* Vertical self-alignment */
+  place-self: center center;                 /* Shorthand for justify-self & align-self */
+}
+
+/* Responsive Grid Examples */
+.responsive-grid {
+  display: grid;
+  /* Auto-fit for responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Grid with Minimum Row Height */
+.min-height-grid {
+  display: grid;
+  grid-template-rows: minmax(100px, auto);
+}
+
+/* Complex Grid Layout */
+.complex-grid {
+  display: grid;
+  grid-template-columns: [start] 1fr [middle] 2fr [end];
+  grid-template-rows: [top] auto [center] 1fr [bottom];
+}
+
+/* Grid with Dense Auto Flow */
+.dense-grid {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+/* Nested Grid */
+.nested-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.nested-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Grid with Aspect Ratio */
+.aspect-ratio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.aspect-ratio-item {
+  aspect-ratio: 16 / 9;
+}
+
+/* Media Queries for Responsive Grids */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+                        "main"
+                        "sidebar"
+                        "footer";
+  }
+}
+
+/* Common Grid Patterns */
+
+/* Holy Grail Layout */
+.holy-grail {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Masonry-like Grid */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 20px;
+  grid-auto-flow: dense;
+}
+
+/* Best Practices:
+1. Use grid-template-areas for complex layouts
+2. Implement mobile-first responsive design
+3. Use minmax() for flexible sizing
+4. Consider accessibility in grid layouts
+5. Test across different viewport sizes
+6. Use meaningful class names
+7. Maintain consistent gap sizes
+8. Consider fallbacks for older browsers
+*/

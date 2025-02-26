@@ -1,0 +1,114 @@
+/* Flexbox Container Properties */
+.flex-container {
+  display: flex;                     /* or inline-flex */
+  flex-direction: row;              /* row | row-reverse | column | column-reverse */
+  flex-wrap: nowrap;                /* nowrap | wrap | wrap-reverse */
+  flex-flow: row nowrap;            /* shorthand for flex-direction and flex-wrap */
+  justify-content: flex-start;      /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+  align-items: stretch;             /* stretch | flex-start | flex-end | center | baseline */
+  align-content: flex-start;        /* flex-start | flex-end | center | space-between | space-around | stretch */
+  gap: 10px;                        /* row-gap and column-gap shorthand */
+  row-gap: 10px;                    /* gap between rows */
+  column-gap: 10px;                 /* gap between columns */
+}
+
+/* Flexbox Item Properties */
+.flex-item {
+  order: 0;                         /* default is 0, controls order of items */
+  flex-grow: 0;                     /* default 0, ability to grow relative to other items */
+  flex-shrink: 1;                   /* default 1, ability to shrink relative to other items */
+  flex-basis: auto;                 /* auto | content | <width> */
+  flex: 0 1 auto;                   /* shorthand for grow, shrink, and basis */
+  align-self: auto;                 /* auto | flex-start | flex-end | center | baseline | stretch */
+}
+
+/* Common Flex Patterns */
+
+/* Center Both Horizontally and Vertically */
+.center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Equal Height Columns */
+.equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Sticky Footer */
+.sticky-footer-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.sticky-footer-content {
+  flex: 1;
+}
+
+/* Holy Grail Layout */
+.holy-grail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.holy-grail-body {
+  display: flex;
+  flex: 1;
+}
+
+.holy-grail-content {
+  flex: 1;
+}
+
+.holy-grail-nav, .holy-grail-ads {
+  flex: 0 0 200px;
+}
+
+/* Responsive Navigation */
+.responsive-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Card Grid */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 300px;
+}
+
+/* Best Practices:
+1. Use flex shorthand wisely
+2. Consider browser support
+3. Plan for responsiveness
+4. Use appropriate units
+5. Consider accessibility
+6. Test cross-browser
+7. Optimize performance
+8. Use semantic HTML
+*/
+
+/* Media Queries for Responsive Flex Layouts */
+@media (max-width: 768px) {
+  .holy-grail-body {
+    flex-direction: column;
+  }
+  
+  .holy-grail-nav, .holy-grail-ads {
+    flex: 0 0 100%;
+  }
+  
+  .responsive-nav {
+    flex-direction: column;
+  }
+}

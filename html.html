@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML Cheatsheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>HTML Advanced Cheatsheet</h1>
+        <nav>
+            <ul>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#semantics">Semantics</a></li>
+                <li><a href="#accessibility">Accessibility</a></li>
+                <li><a href="#meta">Meta Tags</a></li>
+                <li><a href="#scripts">Scripts</a></li>
+                <li><a href="#links">Links</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#lists">Lists</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="forms">
+            <h2>Forms</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="media">
+            <h2>Media</h2>
+            <figure>
+                <img src="image.jpg" alt="Description of image">
+                <figcaption>Image Caption</figcaption>
+            </figure>
+            <audio controls>
+                <source src="audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <video controls width="600">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <section id="semantics">
+            <h2>Semantics</h2>
+            <article>
+                <h3>Article Title</h3>
+                <p>This is a paragraph in an article.</p>
+            </article>
+            <aside>
+                <h4>Related Information</h4>
+                <p>This is some related information.</p>
+            </aside>
+        </section>
+
+        <section id="accessibility">
+            <h2>Accessibility</h2>
+            <p>Use <code>aria-label</code> for better accessibility.</p>
+            <button aria-label="Close" onclick="closeModal()">X</button>
+        </section>
+
+        <section id="meta">
+            <h2>Meta Tags</h2>
+            <p>Meta tags provide metadata about the HTML document.</p>
+            <pre>
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta name="description" content="A brief description of the page"&gt;
+                &lt;meta name="keywords" content="HTML, CSS, JavaScript"&gt;
+                &lt;meta name="author" content="Your Name"&gt;
+            </pre>
+        </section>
+
+        <section id="scripts">
+            <h2>Scripts</h2>
+            <p>Include JavaScript files using the <code>&lt;script&gt;</code> tag.</p>
+            <pre>
+                &lt;script src="script.js"&gt;&lt;/script&gt;
+                &lt;script&gt;
+                    console.log('Inline script running!');
+                &lt;/script&gt;
+            </pre>
+        </section>
+
+        <section id="links">
+            <h2>Links</h2>
+            <p>Use the <code>&lt;a&gt;</code> tag to create hyperlinks.</p>
+            <pre>
+                &lt;a href="https://www.example.com" target="_blank"&gt;Visit Example&lt;/a&gt;
+            </pre>
+        </section>
+
+        <section id="tables">
+            <h2>Tables</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>30</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>25</td>
+                        <td>Los Angeles</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="lists">
+            <h2>Lists</h2>
+            <h3>Ordered List</h3>
+            <ol>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ol>
+            <h3>Unordered List</h3>
+            <ul>
+                <li>Item A</li>
+                <li>Item B</li>
+                <li>Item C</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
+</html>
+

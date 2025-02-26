@@ -1,0 +1,171 @@
+/* Hover Effects Cheatsheet */
+
+/* Basic Hover Effects */
+.hover-opacity:hover {
+  opacity: 0.8;
+}
+
+.hover-scale:hover {
+  transform: scale(1.1);
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg);
+}
+
+.hover-translate:hover {
+  transform: translateY(-5px);
+}
+
+/* Background Transitions */
+.hover-bg {
+  transition: background-color 0.3s ease;
+}
+
+.hover-bg:hover {
+  background-color: #f0f0f0;
+}
+
+.hover-gradient {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background-size: 200% 200%;
+  transition: background-position 0.5s ease;
+}
+
+.hover-gradient:hover {
+  background-position: 100% 100%;
+}
+
+/* Border Effects */
+.hover-border {
+  position: relative;
+}
+
+.hover-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.hover-border:hover::after {
+  width: 100%;
+}
+
+/* Shadow Effects */
+.hover-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Text Effects */
+.hover-text-color:hover {
+  color: #007bff;
+}
+
+.hover-text-spacing:hover {
+  letter-spacing: 2px;
+}
+
+/* Image Effects */
+.hover-image {
+  overflow: hidden;
+}
+
+.hover-image img {
+  transition: transform 0.3s ease;
+}
+
+.hover-image:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay Effects */
+.hover-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-overlay:hover::before {
+  opacity: 1;
+}
+
+/* Multiple Transforms */
+.hover-multiple {
+  transition: all 0.3s ease;
+}
+
+.hover-multiple:hover {
+  transform: scale(1.05) translateY(-5px) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Ripple Effect */
+.hover-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 100%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hover-ripple:hover::after {
+  transform: scale(2);
+  opacity: 1;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hover-scale:hover,
+  .hover-rotate:hover,
+  .hover-translate:hover,
+  .hover-multiple:hover {
+    transform: none;
+  }
+  
+  .hover-ripple::after,
+  .hover-gradient,
+  .hover-image img {
+    transition: none;
+  }
+}
+
+/* Best Practices:
+1. Use hardware-accelerated properties
+2. Keep transitions short (0.2s - 0.5s)
+3. Provide reduced-motion alternatives
+4. Consider touch devices
+5. Test performance
+6. Maintain accessibility
+7. Use meaningful class names
+8. Keep effects subtle and purposeful
+*/

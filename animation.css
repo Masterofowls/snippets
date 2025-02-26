@@ -1,0 +1,153 @@
+/* Basic Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes scale {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Advanced Animations */
+@keyframes rotate3D {
+  from { transform: rotate3d(1, 1, 1, 0deg); }
+  to { transform: rotate3d(1, 1, 1, 360deg); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+/* Animation Properties */
+.animated {
+  /* Duration */
+  animation-duration: 1s;
+  
+  /* Timing Function */
+  animation-timing-function: ease;
+  animation-timing-function: ease-in;
+  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
+  animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  
+  /* Delay */
+  animation-delay: 1s;
+  
+  /* Iteration Count */
+  animation-iteration-count: infinite;
+  animation-iteration-count: 3;
+  
+  /* Direction */
+  animation-direction: normal;
+  animation-direction: reverse;
+  animation-direction: alternate;
+  animation-direction: alternate-reverse;
+  
+  /* Fill Mode */
+  animation-fill-mode: none;
+  animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
+  animation-fill-mode: both;
+  
+  /* Play State */
+  animation-play-state: running;
+  animation-play-state: paused;
+}
+
+/* Common Animation Classes */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+.rotate {
+  animation: rotate3D 3s linear infinite;
+}
+
+/* Hover Animations */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.1);
+}
+
+/* Loading Animations */
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+.loading {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+/* Text Animations */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 4s steps(44) 1s 1 normal both;
+}
+
+/* Best Practices:
+1. Use hardware-accelerated properties (transform, opacity)
+2. Keep animations under 60fps
+3. Provide reduced-motion alternatives
+4. Use appropriate timing functions
+5. Consider animation performance
+6. Test across browsers
+7. Implement fallbacks
+8. Use meaningful names
+*/
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

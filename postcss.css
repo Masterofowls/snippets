@@ -1,0 +1,93 @@
+/* PostCSS Cheatsheet */
+
+/* Basic Usage */
+@import 'variables.css'; /* Importing variables */
+@import 'mixins.css';    /* Importing mixins */
+
+/* Nesting */
+.container {
+  .header {
+    background: blue;
+  }
+  .content {
+    padding: 20px;
+    .item {
+      margin: 10px;
+    }
+  }
+}
+
+/* Variables */
+:root {
+  --main-color: #3498db;
+  --padding: 16px;
+}
+
+.button {
+  background-color: var(--main-color);
+  padding: var(--padding);
+}
+
+/* Mixins */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  @include flex-center;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* Custom Properties */
+:root {
+  --font-size: 16px;
+}
+
+.text {
+  font-size: var(--font-size);
+}
+
+/* CSS Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Pseudo-classes */
+.button:hover {
+  background-color: darken(var(--main-color), 10%);
+}
+
+/* Pseudo-elements */
+.title::after {
+  content: ' - Read More';
+  color: gray;
+}
+
+/* Importing Plugins */
+@import 'postcss-nested'; /* For nesting */
+@import 'postcss-custom-properties'; /* For custom properties */
+@import 'autoprefixer'; /* For vendor prefixes */

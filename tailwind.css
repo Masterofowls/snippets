@@ -1,0 +1,149 @@
+// Tailwind CSS Full Cheatsheet
+
+// Installation
+// npm install tailwindcss
+
+// Configuration
+// npx tailwindcss init
+
+// Tailwind Directives
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Customizing Theme
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        customColor: '#1c1c1c',
+      },
+      spacing: {
+        '128': '32rem',
+      },
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
+      },
+    },
+  },
+};
+
+// Responsive Design
+// Use responsive prefixes to apply styles at different breakpoints
+// Example: 
+// <div class="text-center md:text-left lg:text-right">Responsive Text</div>
+
+// Flexbox Utilities
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// Grid Utilities
+.grid {
+  display: grid;
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.gap-4 {
+  gap: 1rem;
+}
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+// Typography Utilities
+.text-lg {
+  font-size: 1.125rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.text-center {
+  text-align: center;
+}
+.text-gray-700 {
+  color: #4b5563;
+}
+.leading-loose {
+  line-height: 1.75;
+}
+
+// Background Color Utilities
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+.bg-opacity-50 {
+  background-opacity: 0.5;
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+// Margin and Padding Utilities
+.m-4 {
+  margin: 1rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+// Hover and Focus States
+.hover:bg-blue-700:hover {
+  background-color: #1d4ed8;
+}
+.focus:outline-none:focus {
+  outline: 2px solid #3b82f6;
+}
+.hover:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+// Custom Classes
+// You can create custom classes in your CSS file
+.custom-class {
+  @apply bg-gray-200 p-4 rounded-lg;
+}
+.btn {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+.card {
+  @apply bg-white shadow-md rounded-lg p-6;
+}
+
+// Transitions and Animations
+.transition {
+  transition: all 0.3s ease;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.transform {
+  transform: translateY(0);
+}
+.hover:scale-105:hover {
+  transform: scale(1.05);
+}
+
