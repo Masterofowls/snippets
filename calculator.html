@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Calculator</title>
+    <style>
+        /* Basic styles for the calculator */
+        #calculator {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: auto;
+        }
+        #display {
+            height: 40px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        button {
+            height: 40px;
+            font-size: 18px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" disabled>
+        <div>
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operator">+</button>
+        </div>
+        <div>
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operator">-</button>
+        </div>
+        <div>
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="operator">*</button>
+        </div>
+        <div>
+            <button class="number">0</button>
+            <button id="equals">=</button>
+            <button class="operator">/</button>
+            <button id="clear">C</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+        let currentInput = '';
+        let operator = '';
+        let firstOperand = null;
+
+        function appendNumber(number) {
+            currentInput += number;
+            updateDisplay();
+        }
+
+        function setOperator(op) {
+            if (currentInput === '') return;
+            if (firstOperand === null) {
+                firstOperand = parseFloat(currentInput);
+            } else if (operator) {
+                const result = calculate(firstOperand, parseFloat(currentInput), operator);
+                currentInput = result.toString();
+                firstOperand = result;
+            }
+            operator = op;
+            currentInput = '';
+        }
+
+        function calculate(first, second, op) {
+            switch (op) {
+                case '+':
+                    return first + second;
+                case '-':
+                    return first - second;
+                case '*':
+                    return first * second;
+                case '/':
+                    return first / second;
+                default:
+                    return second;
+            }
+        }
+
+        function updateDisplay() {
+            display.value = currentInput;
+        }
+
+        function clear() {
+            currentInput = '';
+            operator = '';
+            firstOperand = null;
+            updateDisplay();
+        }
+
+        // Event listeners for buttons
+        document.querySelectorAll('.number').forEach(button => {
+            button.addEventListener('click', () => appendNumber(button.innerText));
+        });
+
+        document.querySelectorAll('.operator').forEach(button => {
+            button.addEventListener('click', () => setOperator(button.innerText));
+        });
+
+        document.getElementById('equals').addEventListener('click', () => {
+            if (currentInput === '' || operator === '') return;
+            const result = calculate(firstOperand, parseFloat(currentInput), operator);
+            currentInput = result.toString();
+            operator = '';
+            firstOperand = null;
+            updateDisplay();
+        });
+
+        document.getElementById('clear').addEventListener('click', clear);
+    </script>
+</body>
+</html>
